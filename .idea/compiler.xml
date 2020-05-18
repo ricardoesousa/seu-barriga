@@ -10,6 +10,7 @@
         <module name="seubarriga" />
         <module name="teste2" />
         <module name="automation_practice" />
+        <module name="seu-barriga" />
       </profile>
     </annotationProcessing>
   </component>

@@ -3,15 +3,14 @@ package pages;
 import hooks.BaseTest;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import javax.xml.crypto.Data;
+import org.openqa.selenium.support.ui.Select;
 
 import static org.junit.Assert.assertEquals;
 
 public class Movimentacao extends BaseTest {
 
     @FindBy (css="#tipo")
-    private WebElement txtTipodeMovimentacao;
+    private WebElement drpTipodeMovimentacao;
 
     @FindBy (css="#data_transacao")
     private WebElement txtDataDaMovimentacao;
@@ -29,7 +28,7 @@ public class Movimentacao extends BaseTest {
     private WebElement txtValor;
 
     @FindBy (css="#conta")
-    private WebElement txtConta;
+    private WebElement drpConta;
 
     @FindBy (css="#status_pendente")
     private WebElement rdoPendente;
@@ -44,13 +43,13 @@ public class Movimentacao extends BaseTest {
     private WebElement msgMovimentacaoAdicionadaComSucesso;
 
     public void preencheFormulario (String tipoMovimentacao, String dataMovimentacao, String dataPagamento, String descricao, String interessado, String valor, String conta, String situacao ) {
-        txtTipodeMovimentacao.sendKeys(tipoMovimentacao);
+        new Select(drpTipodeMovimentacao).selectByVisibleText(tipoMovimentacao);
         txtDataDaMovimentacao.sendKeys(dataMovimentacao);
         txtDataDoPagamento.sendKeys(dataPagamento);
         txtDescricao.sendKeys(descricao);
         txtInteressado.sendKeys(interessado);
         txtValor.sendKeys(valor);
-        txtConta.sendKeys(conta);
+        new Select(drpConta).selectByVisibleText(conta);
         if(situacao == "pendente"){
             rdoPendente.click();}
         if (situacao == "pago"){
