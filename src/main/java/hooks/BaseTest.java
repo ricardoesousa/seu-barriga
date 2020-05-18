@@ -25,8 +25,8 @@ public class BaseTest implements DefaultProperties {
         driver.manage().window().maximize();
     }
 
-//    @After
-//    public void TearDown() { driver.quit(); }
+    @After
+    public void TearDown() { driver.quit(); }
 
 }
 
